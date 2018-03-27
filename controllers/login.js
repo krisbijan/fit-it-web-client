@@ -1,0 +1,2 @@
+fitIT.controller('loginCtrl', function ($scope, $http, $route, $location, initDataService, Notification, dataContainerFunctions, systemsService, $rootScope, moment, datetime, SidebarService, NavigationService, $filter, dataContainer) {
+});
