@@ -1,12 +1,12 @@
-fitIT.config(['$routeProvider',function($routeProvider) {
+fitIT.config(['$routeProvider',function($routeProvider, $cookies) {
   $routeProvider.
-        when('/', {
+        when('/login', {
             templateUrl: 'templates/login.html',
             controller: 'loginCtrl'
         }).
-        when('/new-account', {
-            templateUrl: 'templates/new-acc.html',
-            controller: 'newAccCtrl'
+        when('/main', {
+            templateUrl: 'templates/main.html',
+            controller: 'mainCtrl'
         });
 }]);
 

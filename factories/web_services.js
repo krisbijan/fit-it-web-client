@@ -19,9 +19,10 @@ fitIT.factory('web_services', function ($http, $httpParamSerializer, $window, gl
                 data: $httpParamSerializer(data)
             }).then(function (response) {
 
-
                 globalData.access_token = response.data.access_token;
                 globalData.refresh_token = response.data.refresh_token;
+
+                
 
                 if (rememberMe) {
                     $cookies.put("access_token", response.data.access_token);
