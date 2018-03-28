@@ -2,25 +2,72 @@
     <div class="row">
         <div class="card card-container">
             <h1 class="text-center login-title">Login to Fit-It</h1>
-            <br> <img id="profile-img" class="profile-img-card"
-                src="resources/avatar_2x.png" />
+            <br>
+            <img id="profile-img" class="profile-img-card" src="resources/avatar_2x.png" />
             <p id="profile-name" class="profile-name-card"></p>
             <form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span> <input
-                    type="email" id="inputEmail" class="form-control"
-                    placeholder="Email address" required autofocus> <input
-                    type="password" id="inputPassword" class="form-control"
-                    placeholder="Password" required>
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="loginData.email" required
+                    autofocus>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="loginData.password" required>
                 <div id="remember" class="checkbox">
-                    <label> <input type="checkbox" value="remember-me">
-                        Remember me
+                    <label>
+                        <input type="checkbox" value="remember-me" ng-model="loginData.rememberMe"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin"
-                    type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="login()">Sign in</button>
             </form>
-            <a href="#" class="forgot-password"> Forgot the password? </a>
+            <a href="#!/" ng-click="openForgetPassModal()" class="forgot-password"> Forgot the password? </a>
         </div>
-        <a href="#" class="text-center new-account">Create an account </a>
+        <a href="#!/" ng-click="openNewUserModal()" class="text-center new-account">Create an account </a>
     </div>
 </div>
+
+<!-- REGISTER NEW USER MODAL -->
+<div class="modal fade" id="newUser" tabindex="-1" role="dialog">
+    <div class="modal-dialog size-modal" role="document">
+        <div class="modal-body">
+            <div class="row">
+                <div class="card card-container">
+                    <h1 class="text-center login-title">Register new user</h1>
+                    <br>
+
+                    <form class="form-signin">
+                        <span id="reauth-email" class="reauth-email"></span>
+
+                        <input type="email" id="newEmail" class="form-control" placeholder="Email address" ng-model="newUserData.email" required autofocus>
+                        <input type="password" id="newPassword" class="form-control" placeholder="Password" ng-model="newUserData.password" required>
+                        <input type="text" id="newFirstName" class="form-control" placeholder="First name" ng-model="newUserData.firstName" required>
+                        <input type="text" id="newLastName" class="form-control" placeholder="Last name" ng-model="newUserData.lastName" required>
+
+                        <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="register()">Register</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div class="modal fade" id="forgetPass" tabindex="-1" role="dialog">
+        <div class="modal-dialog size-modal" role="document">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="card card-container">
+                        <h1 class="text-center login-title">Set new password</h1>
+                        <br>    
+                        Backend returns user details - need to implement password reset logic on backend
+                        <form class="form-signin">
+                            <span id="reauth-email" class="reauth-email"></span>
+    
+                            <input type="email" id="forgotEmail" class="form-control" placeholder="Email address" ng-model="forgotData.email" required autofocus>
+    
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="forgot()">Reset password</button>
+                        </form>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

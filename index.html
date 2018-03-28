@@ -6,15 +6,20 @@
 <meta name="description" content="Fit-It Web Client">
 <meta name="author" content="krisbijan@github">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
-<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet" rel="stylesheet">
+<link href="css/angular-ui-notification.css" rel="stylesheet">
 
 <script src="libs/jquery-1.11.3.min.js"></script>
 <script src="libs/bootstrap.min.js"></script>
 
 <script src="libs/angular.js"></script>
 <script src="libs/angular-route.js"></script>
+<script src="libs/angular-cookies.js"></script>
+<script src="libs/angular-resource.js"></script>
+<script src="libs/angular-ui-notification.js"></script>
+
 </head>
 
 <body>
@@ -26,14 +31,18 @@
 
 	<script src="app.js"></script>
 	
-	<!-- FACTORIES 
+	<!-- FACTORIES -->
 	<script src="factories/web_services.js"></script>
--->
+
+	<!-- SERVICES -->
+	<script src="services/globalData.js"></script>
+
 	<!-- CONFIG -->
 	<script src="config.js"></script>
 
 	<!-- CONTROLLERS -->
     <script src="controllers/login.js"></script>
+    <script src="controllers/new_acc.js"></script>
 
 
 

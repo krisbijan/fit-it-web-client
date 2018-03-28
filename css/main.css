@@ -78,6 +78,10 @@ body, html {
     box-sizing: border-box;
 }
 
+.form-signin #newLastName,
+.form-signin #newFirstName,
+.form-signin #newPassword,
+.form-signin #newEmail,
 .form-signin #inputEmail,
 .form-signin #inputPassword {
     direction: ltr;

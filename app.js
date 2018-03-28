@@ -1,1 +1,1 @@
-var fitIT = angular.module('fitIT', ['ngRoute']);
+var fitIT = angular.module('fitIT', ["ngResource","ngRoute","ngCookies","ui-notification"]);
