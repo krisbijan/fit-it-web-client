@@ -1,5 +1,6 @@
 fitIT.factory('web_services', function ($http, $httpParamSerializer, $window, globalData, $filter, $cookies, Notification) {
     return {
+
         oauth2_login: function (email, password, rememberMe) {
 
             var data = {
@@ -21,7 +22,6 @@ fitIT.factory('web_services', function ($http, $httpParamSerializer, $window, gl
 
                 globalData.access_token = response.data.access_token;
                 globalData.refresh_token = response.data.refresh_token;
-
                 
 
                 if (rememberMe) {
@@ -33,6 +33,25 @@ fitIT.factory('web_services', function ($http, $httpParamSerializer, $window, gl
                 Notification.error({ message: "Error logging in!", replaceMessage: true });
             });
         },
+
+
+        oauth2_logout: function () {
+
+ 
+            return $http({
+                method: 'GET',
+                url: globalData.oauth2Server + '/oauth/revoke-token',
+                headers: {
+                    "Authorization": "Bearer " + globalData.access_token
+                }
+            }).then(function (response) {
+                return response;
+            }, function errorCallback(response) {
+                Notification.error({ message: "Error logging out!", replaceMessage: true });
+            });
+        },
+
+
         register: function (email, password, firstName, lastName) {
             return $http({
                 method: 'POST',
@@ -52,6 +71,8 @@ fitIT.factory('web_services', function ($http, $httpParamSerializer, $window, gl
                 Notification.error({ message: "Error registering!", replaceMessage: true });
             });
         },
+
+
         forgotPass: function (email) {
             return $http({
                 method: 'GET',
@@ -72,6 +93,24 @@ fitIT.factory('web_services', function ($http, $httpParamSerializer, $window, gl
                 return response;
             }, function errorCallback(response) {
                 Notification.error({ message: "Error reseting password!", replaceMessage: true });
+            });
+        },
+
+
+        getUserData: function () {
+            return $http({
+                method: 'GET',
+                url: globalData.webSite + '/user',
+                headers: {
+                    "Authorization": "Bearer " + globalData.access_token
+                }
+            }).then(function (response) {
+
+                globalData.userData = response.data;
+                console.log (globalData.userData);
+                return response;
+            }, function errorCallback(response) {
+                Notification.error({ message: "Error getting user data!", replaceMessage: true });
             });
         }
     }
